@@ -1,71 +1,86 @@
 const myKey = config.API_KEY;
 
-async function getMovieData() {
-    const api_url = "https://www.omdbapi.com/?t=gladiator&apikey="+myKey;
-    const movies = await fetch(api_url).then(response => response.json());
-    console.log(movies);
+async function getMovieData(search) {
+    const api_url = `https://www.omdbapi.com/?t=gladiator&apikey=`+myKey;
+    // const api_url = `https://www.omdbapi.com/?t=${search}&apikey=`+myKey;
+    const movieData = await fetch(api_url).then(response => response.json());
+    console.log(movieData);
+    
+    const searchMovie = document.getElementById("search").value
 
-    // for (let i=0; i < movies.length; i++){
-
-    // const movie = movies[i]
+    const sectionFiches = document.querySelector(".fiches")
 
     // Titre film avec balises h2
     const nomMovie = document.createElement("h2")
-    nomMovie.innerText = movies.Title
+    nomMovie.innerText = `Nom du film : ${movieData.Title}`
     console.log(nomMovie)
     // Poster du film avec balises img
-    const imageElement = document.createAttribute("img")
-    imageElement.src = movies.Poster
-    console.log(movies.Poster)
+    const imageElement = document.createElement("img")
+    imageElement.src = movieData.Poster
+    console.log(imageElement)
     // Descriptif
     const movieYear = document.createElement("p")
-    movieYear.innerText = movies.Year
+    movieYear.innerText = `Année de sortie du film : ${movieData.Year}`
     console.log(movieYear)
 
     const movieRated = document.createElement("p")
-    movieRated.innerText = movies.Rated
+    movieRated.innerText = `Note du film : ${movieData.Rated}`
     console.log(movieRated)
 
     const movieReleased = document.createElement("p")
-    movieReleased.innerText = movies.Released
+    movieReleased.innerText = `Nom du film : ${movieData.Released}`
     console.log(movieReleased)
 
     const movieDuration = document.createElement("p")
-    movieDuration.innerText = movies.Runtime
+    movieDuration.innerText = `Durée : ${movieData.Runtime}`
     console.log(movieDuration)
 
     const movieGenre = document.createElement("p")
-    movieGenre.innerText = movies.Genre
+    movieGenre.innerText = `Genre : ${movieData.Genre}`
     console.log(movieGenre)
 
     const movieDirector = document.createElement("p")
-    movieDirector.innerText = movies.Director
+    movieDirector.innerText = `Réalisateur : ${movieData.Director}`
     console.log(movieDirector)
 
     const movieWriter = document.createElement("p")
-    movieWriter.innerText = movies.Writer
+    movieWriter.innerText = `Writers : ${movieData.Writer}`
     console.log(movieWriter)
 
     const movieActor = document.createElement("p")
-    movieActor.innerText = movies.Actors
+    movieActor.innerText = `Acteurs : ${movieData.Actors}`
     console.log(movieActor)
 
     const moviePlot = document.createElement("p")
-    moviePlot.innerText = movies.Plot
+    moviePlot.innerText = `Synopsis : ${movieData.Plot}`
     console.log(moviePlot)
 
     const movieLanguage = document.createElement("p")
-    movieLanguage.innerText = movies.Language
+    movieLanguage.innerText = `Langue : ${movieData.Language}`
     console.log(movieLanguage)
 
     const movieCountry = document.createElement("p")
-    movieCountry.innerText = movies.Country
+    movieCountry.innerText = `Pays : ${movieData.Country}`
     console.log(movieCountry)
 
     const movieAwards = document.createElement("p")
-    movieAwards.innerText= movies.Awards
+    movieAwards.innerText= `Récompenses : ${movieData.Awards}`
     console.log(movieAwards)
 
+    sectionFiches.appendChild(nomMovie)
+    sectionFiches.appendChild(imageElement)
+    sectionFiches.appendChild(movieYear)
+    sectionFiches.appendChild(movieRated)
+    sectionFiches.appendChild(movieReleased)
+    sectionFiches.appendChild(movieDuration)
+    sectionFiches.appendChild(movieGenre)
+    sectionFiches.appendChild(movieDirector)
+    sectionFiches.appendChild(movieWriter)
+    sectionFiches.appendChild(movieActor)
+    sectionFiches.appendChild(moviePlot)
+    sectionFiches.appendChild(movieLanguage)
+    sectionFiches.appendChild(movieCountry)
+    sectionFiches.appendChild(movieAwards)
+
 }
-// }
-getMovieData();
+getMovieData(search);
