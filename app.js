@@ -2,7 +2,7 @@
 const myKey = "7fc380ff"
 
 async function searchMovies(title) {
-  const url = `https://www.omdbapi.com/?s=${title}&apikey=${myKey}`;
+  const url = `https://www.omdbapi.com/?s=${title}&apikey=7fc380ff`;
   const movies = await fetch(url);
   const movieData = await movies.json();
 //   console.log(movieData); console.log pour trouver le Search
