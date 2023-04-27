@@ -10,7 +10,16 @@ body {
 }
 
 .films {
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.card {
+    padding-top: 5px;
+}
+
+.btn btn-outline-secondary{
+    background-color: black;
 }
 
 .card:hover {
