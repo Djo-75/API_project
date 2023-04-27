@@ -1,9 +1,11 @@
-const myKey = config.API_KEY;
+// const myKey = config.API_KEY;
+const myKey = "7fc380ff"
 
 async function searchMovies(title) {
   const url = `https://www.omdbapi.com/?s=${title}&apikey=${myKey}`;
   const movies = await fetch(url);
   const movieData = await movies.json();
+//   console.log(movieData); console.log pour trouver le Search
   console.log(movieData.Search);
   if (movieData.Response == "True") displayMovie(movieData.Search);
 }
@@ -35,7 +37,7 @@ function displayMovie(array) {
 
     const titleElement = document.createElement("h5");
     titleElement.classList.add("card-title");
-    titleElement.innerHTML = movie["Title"].substring(0, 20);
+    titleElement.innerHTML = movie["Title"].substring(0, 20); // limite la longueur du titre affiché dans la carte
 
     cardBodyElement.appendChild(titleElement);
 
@@ -49,7 +51,7 @@ function displayMovie(array) {
 
     // Create button element and append it to the card footer
     const btnElement = document.createElement("button");
-    btnElement.classList.add("btn", "btn-primary");
+    btnElement.classList.add("btn", "btn-secondary");
     btnElement.textContent = "More";
 
     cardFooter.appendChild(btnElement);
