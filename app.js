@@ -13,6 +13,10 @@ function displayMovie(array) {
 
   // Clear any existing content in the section
   sectionFilms.innerHTML = "";
+  // Définir la grille CSS
+  sectionFilms.style.display = "grid";
+  sectionFilms.style.gridTemplateColumns = "repeat(3, 1fr)"; // fractionne l'espace disponible en 3
+  sectionFilms.style.gridGap = "20px"; // Ajouter un espacement entre les éléments
 
   // Loop through each movie object in the array
 
@@ -47,14 +51,11 @@ function displayMovie(array) {
     const btnElement = document.createElement("button");
     btnElement.classList.add("btn", "btn-primary");
     btnElement.textContent = "More";
+
     cardFooter.appendChild(btnElement);
-
     cardBodyElement.appendChild(pElement);
-
     cardElement.appendChild(cardBodyElement);
-
     cardElement.appendChild(cardFooter);
-
     sectionFilms.appendChild(cardElement);
   });
 }
