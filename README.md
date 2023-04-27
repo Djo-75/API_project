@@ -1,2 +1,2 @@
 # API_project
-Voilà
+Test OMDB API calls 
