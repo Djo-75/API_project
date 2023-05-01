@@ -16,7 +16,7 @@ function displayMovie(array) {
   sectionFilms.innerHTML = "";
   // Définir la grille CSS
   sectionFilms.style.display = "grid";
-  sectionFilms.style.gridTemplateColumns = "repeat(3, 1fr)"; // fractionne l'espace disponible en 3
+  sectionFilms.style.gridTemplateColumns = "repeat(3, 0.6fr)"; // fractionne l'espace disponible en 3
   sectionFilms.style.gridGap = "20px"; // Ajouter un espacement entre les éléments
 
   // Loop through each movie object in the array
@@ -36,7 +36,7 @@ function displayMovie(array) {
 
     const titleElement = document.createElement("h5");
     titleElement.classList.add("card-title");
-    titleElement.innerHTML = movie["Title"].substring(0, 20); // limite la longueur du titre affiché dans la carte
+    titleElement.innerHTML = movie["Title"]; // limite la longueur du titre affiché dans la carte
 
     cardBodyElement.appendChild(titleElement);
 
@@ -67,4 +67,5 @@ btnSearch.addEventListener("click", function (event) {
   const userInput = document.getElementById("search-input").value;
   searchMovies(userInput);
   console.log(userInput);
+  console.log(event)
 });
